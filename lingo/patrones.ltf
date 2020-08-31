@@ -1,0 +1,42 @@
+set default
+set echoin 1
+MODEL:
+SETS:
+  	Patron/1..4/:CnP, OP, CP;
+
+ENDSETS
+
+DATA:
+
+	!Presupuesto;
+	P=@OLE('direccionExcel');
+	!Demanda insatizfecha de estudiantes;
+	DIE=@OLE('direccionExcel');
+	!Demanda total de estudiantes;
+	DTE=@OLE('direccionExcel');
+
+	!Ocupantes por patron;
+	OP=@OLE('direccionExcel');
+	!Costo por patron;	
+	CP=@OLE('direccionExcel');
+
+	!Cantidad del patron de tipo j;
+	@OLE('direccionExcel')=CnP;
+	
+ENDDATA
+
+[OcupantesTotales] Max = @Sum(Patron(j):CnP(j)*OP(j));
+
+[LimitePresupuesto] @Sum(Patron(j):CnP(j)*CP(j))<=P;
+[LimiteEstudiantesActivos] @Sum(Patron(j):CnP(j)*OP(j)) <= DTE;
+[Requerimiento] @Sum(Patron(j):CnP(j)*OP(j)) >= DIE;
+
+!Restriccion de variable entera;
+@for(Patron(j):@gin(Cnp(j)));
+END
+set terseo 1
+go
+nonz volume
+quit
+
+ 
