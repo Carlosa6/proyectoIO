@@ -14,6 +14,9 @@ app.engine('hbs', exphbs({
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs'
 }));
+
+console.log(app.get('views'), app.get('layouts'));
+
 app.set('view engine', 'hbs');
 
 //middlewares
@@ -21,6 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 
 //rutas
 app.use(require('./routes/index'));
+
+app.use(express.static(__dirname + '/public'));
 
 app.listen(port, console.log("Server on port", port));
 
@@ -52,5 +57,5 @@ const procesoInicial = async() => {
 
 };
 
-procesoInicial()
-    .catch(err => console.info(err));
+// procesoInicial()
+//     .catch(err => console.info(err));
