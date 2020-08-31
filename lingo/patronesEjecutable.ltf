@@ -9,19 +9,19 @@ ENDSETS
 DATA:
 
 	!Presupuesto;
-	P=@OLE('C:\Users\AARON\Documents1\carpetas-escritorio\ciclo7\IO-G2\palproyecto\Backend-Proyecto-IO\excel\patrones.xlsx');
+	P=@OLE('C:\Users\Minamura\Documents\Investigacion Operativa I\proyectoIO nueva fase\excel\patrones.xlsx');
 	!Demanda insatizfecha de estudiantes;
-	DIE=@OLE('C:\Users\AARON\Documents1\carpetas-escritorio\ciclo7\IO-G2\palproyecto\Backend-Proyecto-IO\excel\patrones.xlsx');
+	DIE=@OLE('C:\Users\Minamura\Documents\Investigacion Operativa I\proyectoIO nueva fase\excel\patrones.xlsx');
 	!Demanda total de estudiantes;
-	DTE=@OLE('C:\Users\AARON\Documents1\carpetas-escritorio\ciclo7\IO-G2\palproyecto\Backend-Proyecto-IO\excel\patrones.xlsx');
+	DTE=@OLE('C:\Users\Minamura\Documents\Investigacion Operativa I\proyectoIO nueva fase\excel\patrones.xlsx');
 
 	!Ocupantes por patron;
-	OP=@OLE('C:\Users\AARON\Documents1\carpetas-escritorio\ciclo7\IO-G2\palproyecto\Backend-Proyecto-IO\excel\patrones.xlsx');
+	OP=@OLE('C:\Users\Minamura\Documents\Investigacion Operativa I\proyectoIO nueva fase\excel\patrones.xlsx');
 	!Costo por patron;	
-	CP=@OLE('C:\Users\AARON\Documents1\carpetas-escritorio\ciclo7\IO-G2\palproyecto\Backend-Proyecto-IO\excel\patrones.xlsx');
+	CP=@OLE('C:\Users\Minamura\Documents\Investigacion Operativa I\proyectoIO nueva fase\excel\patrones.xlsx');
 
 	!Cantidad del patron de tipo j;
-	@OLE('C:\Users\AARON\Documents1\carpetas-escritorio\ciclo7\IO-G2\palproyecto\Backend-Proyecto-IO\excel\patrones.xlsx')=CnP;
+	@TEXT('C:\Users\Minamura\Documents\Investigacion Operativa I\proyectoIO nueva fase\salida\data.txt')=CnP;
 	
 ENDDATA
 

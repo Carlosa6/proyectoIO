@@ -21,7 +21,7 @@ DATA:
 	CP=@OLE('direccionExcel');
 
 	!Cantidad del patron de tipo j;
-	@OLE('direccionExcel')=CnP;
+	@TEXT('direccionSalida')=CnP;
 	
 ENDDATA
 

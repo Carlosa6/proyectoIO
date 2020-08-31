@@ -28,19 +28,21 @@ const leerArchivo = (dir) => new Promise((resolve, reject) => {
     });
 });
 
-const reemplazarRutaDentroFichero = async(nombreVariable, direccion, direccionExcel) => {
+const reemplazarRutaDentroFichero = async(nombreVariableExcel, nombreVariableSalida, direccion, direccionExcel, direccionSalida) => {
     let archivoString = (await leerArchivo(direccion)).toString();
-    archivoString = archivoString.split(nombreVariable).join(direccionExcel);
+    archivoString = archivoString.split(nombreVariableExcel).join(direccionExcel);
+    archivoString = archivoString.split(nombreVariableSalida).join(direccionSalida);
     return archivoString;
 };
 
-const generarDentroFichero = async(nombreVariable, direccion, direccionExcel, direccionFichero) => {
+const generarDentroFichero = async(nombreVariableExcel, nombreVariableSalida, direccion, direccionExcel, direccionSalida, direccionFichero) => {
     try {
         if (!fs.existsSync(direccionFichero)) child_process.execSync(`type nul > "${direccionFichero}"`);
     } catch (error) {
         throw new Error('La direccion del fichero es incorrecta');
     }
-    const archivoString = await reemplazarRutaDentroFichero(nombreVariable, direccion, direccionExcel);
+
+    const archivoString = await reemplazarRutaDentroFichero(nombreVariableExcel, nombreVariableSalida, direccion, direccionExcel, direccionSalida);
 
     await escribirArchivo(direccionFichero, archivoString);
 
@@ -50,5 +52,6 @@ const generarDentroFichero = async(nombreVariable, direccion, direccionExcel, di
 
 module.exports = {
     retrocederUnaCarpeta,
-    generarDentroFichero
+    generarDentroFichero,
+    leerArchivo
 };
